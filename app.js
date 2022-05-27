@@ -22,6 +22,18 @@ function runCommand(command) {
       clearA();
       break;
 
+    case "social":
+      addToTerminal(social);
+      break;
+
+    case "git":
+      addToTerminal(git);
+      break;
+
+    case "who":
+      addToTerminal(who);
+      break;
+
     default:
       addToTerminal(`<p>Error</p>`);
       break;
