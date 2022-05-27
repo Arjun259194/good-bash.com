@@ -3,6 +3,19 @@ console.log("Connected");
 const textArea = document.querySelector("#input-text");
 const command = document.querySelector("#command");
 const terminal = document.querySelector("#terminal");
+const time = document.querySelector("#time");
+const date = document.querySelector("#date");
+const inputSection = document.querySelector(".input-section");
+
+let commands = [];
+let commandIterator;
+
+window.onload = () => {
+  addToTerminal(starterTemplate);
+  textArea.focus();
+  time.innerHTML = currentTime();
+  date.innerHTML = currentDate();
+};
 
 function addToTerminal(content) {
   terminal.innerHTML += content;
@@ -30,6 +43,10 @@ function runCommand(command) {
       addToTerminal(git);
       break;
 
+    // case "git -gt":
+    //   gitGt();
+    //   break;
+
     case "who":
       addToTerminal(who);
       break;
@@ -40,18 +57,53 @@ function runCommand(command) {
   }
 }
 
-window.onload = () => {
-  addToTerminal(starterTemplate);
-};
+function commandHistory() {
+  command.innerHTML = commands[commandIterator];
+  textArea.value = commands[commandIterator];
+  if (commandIterator == 0) {
+    commandIterator = commands.length - 1;
+  } else {
+    commandIterator--;
+  }
+}
 
-window.addEventListener("keyup", () => {
-  command.innerHTML = textArea.value;
+function currentTime() {
+  let date = new Date();
+  const timeObj = {
+    HH: date.getHours(),
+    MM: date.getMinutes(),
+  };
+  return `${timeObj.HH}:${timeObj.MM}`;
+}
+
+function currentDate() {
+  let currentDate = new Date();
+  let cDay = currentDate.getDate();
+  let cMonth = currentDate.getMonth() + 1;
+  let cYear = currentDate.getFullYear();
+
+  return cDay + "-" + cMonth + "-" + cYear;
+}
+
+window.addEventListener("keyup", (e) => {
+  if (e.keyCode == "38") {
+    commandHistory();
+  } else {
+    command.innerHTML = textArea.value;
+  }
+  time.innerHTML = currentTime();
+  date.innerHTML = currentDate();
+});
+
+inputSection.addEventListener("click", () => {
   textArea.focus();
 });
 
 textArea.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
+    commandIterator = commands.length;
+    commands.push(textArea.value.toLowerCase());
     runCommand(textArea.value);
     textArea.value = "";
   }

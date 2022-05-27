@@ -21,31 +21,36 @@ const gitProjects = [
   "https://github.com/Arjun259194/Clock-in-javascript"
 ];
 
+function $(selector){
+  return document.querySelector(selector);
+}
+
 let help = `
-            <pre> <span class="command">help</span>        -to see help </pre>
-            <pre> <span class="command">who</span>         -info about site </pre>
-            <pre> <span class="command">social</span>      -see social links </pre>
-            <pre> <span class="command">clear</span>       -clear screen </pre>
-            <pre> <span class="command">clear -a</span>    -clear screen every thing </pre>
-            <pre> <span class="command">git</span>         -see github projects </pre>
+            <pre> <span class="command">help</span>                   -to see help </pre>
+            <pre> <span class="command">who</span>                    -info about site </pre>
+            <pre> <span class="command">social</span>                 -see social links </pre>
+            <pre> <span class="command">clear</span>                  -clear screen </pre>
+            <pre> <span class="command">clear -a</span>               -clear screen every thing </pre>
+            <pre> <span class="command">git</span>                    -list out github projects </pre>
+            <pre> <span class="command">git -gt</span>        -visit the project </pre>
             `;
 
-const who = `<p>Who??</p>`
+const who = `<p>under construction</p>`
 
 const starterTemplate = `<pre class="wordArt">
 
 
-    ▄████  ▒█████   ▒█████  ▓█████▄  ▄▄▄▄    ▄▄▄        ██████  ██░ ██       ▄████▄   ▒█████   ███▄ ▄███▓
-    ██▒ ▀█▒▒██▒  ██▒▒██▒  ██▒▒██▀ ██▌▓█████▄ ▒████▄    ▒██    ▒ ▓██░ ██▒     ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒
-   ▒██░▄▄▄░▒██░  ██▒▒██░  ██▒░██   █▌▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒██▀▀██░     ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░
-   ░▓█  ██▓▒██   ██░▒██   ██░░▓█▄   ▌▒██░█▀  ░██▄▄▄▄██   ▒   ██▒░▓█ ░██      ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ 
-   ░▒▓███▀▒░ ████▓▒░░ ████▓▒░░▒████▓ ░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▓█▒░██▓ ██▓ ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒
-    ░▒   ▒ ░ ▒░▒░▒░ ░ ▒░▒░▒░  ▒▒▓  ▒ ░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒ ▒▓▒ ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░
-     ░   ░   ░ ▒ ▒░   ░ ▒ ▒░  ░ ▒  ▒ ▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ▒ ░▒░ ░ ░▒    ░  ▒     ░ ▒ ▒░ ░  ░      ░
-   ░ ░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒   ░ ░  ░  ░    ░   ░   ▒   ░  ░  ░   ░  ░░ ░ ░   ░        ░ ░ ░ ▒  ░      ░   
-         ░     ░ ░      ░ ░     ░     ░            ░  ░      ░   ░  ░  ░  ░  ░ ░          ░ ░         ░   
-                              ░            ░                              ░  ░                            </pre>
-                        <p id="instruction">Type 'help' to see available commands</p>`;
+  ▄████  ▒█████   ▒█████  ▓█████▄  ▄▄▄▄    ▄▄▄        ██████  ██░ ██       ▄████▄   ▒█████   ███▄ ▄███▓
+  ██▒ ▀█▒▒██▒  ██▒▒██▒  ██▒▒██▀ ██▌▓█████▄ ▒████▄    ▒██    ▒ ▓██░ ██▒     ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒
+ ▒██░▄▄▄░▒██░  ██▒▒██░  ██▒░██   █▌▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒██▀▀██░     ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░
+ ░▓█  ██▓▒██   ██░▒██   ██░░▓█▄   ▌▒██░█▀  ░██▄▄▄▄██   ▒   ██▒░▓█ ░██      ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ 
+ ░▒▓███▀▒░ ████▓▒░░ ████▓▒░░▒████▓ ░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▓█▒░██▓ ██▓ ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒
+  ░▒   ▒ ░ ▒░▒░▒░ ░ ▒░▒░▒░  ▒▒▓  ▒ ░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒ ▒▓▒ ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░
+   ░   ░   ░ ▒ ▒░   ░ ▒ ▒░  ░ ▒  ▒ ▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ▒ ░▒░ ░ ░▒    ░  ▒     ░ ▒ ▒░ ░  ░      ░
+ ░ ░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒   ░ ░  ░  ░    ░   ░   ▒   ░  ░  ░   ░  ░░ ░ ░   ░        ░ ░ ░ ▒  ░      ░   
+       ░     ░ ░      ░ ░     ░     ░            ░  ░      ░   ░  ░  ░  ░  ░ ░          ░ ░         ░   
+                            ░            ░                              ░  ░                            </pre>
+                        <p id="instruction" class="comment-color">Type 'help' to see available commands</p>`;
 
 const social = `<a class="links" href="${instagram}" target="blank" >//www.instagram.com</a><br>
                 <a class="links" href="${twitter}" target="blank" >//www.twitter.com</a><br>
@@ -61,10 +66,17 @@ const clearA = () => {
 };
 
 const git = `
-            <a href="${gitProjects[0]}" target="blank" >Class-A-news.com</a><span>    ->a Pure js news website project with news api</span><br>
-            <a href="${gitProjects[1]}" target="blank" >Css Glitch effect text</a><span>    ->only css glitch effect</span><br>
-            <a href="${gitProjects[2]}" target="blank" >Admin Dashboard</a><span>    ->responsive Admin-Dashboard with dark theme</span><br>
-            <a href="${gitProjects[3]}" target="blank" >Postman clone</a><span>    ->a Postman clone to test backend</span><br>
-            <a href="${gitProjects[4]}" target="blank" >JS counter</a><span>    -> a simple counter with JS</span><br>
-            <a href="${gitProjects[5]}" target="blank" >Clock JS</a><span>    -> a simple clock with js Date()</span><br>
+            <a class="links" href="${gitProjects[0]}" target="blank" >[0]Class-A-news.com</a><pre>    ->a Pure js news website project with news api</pre><br>
+            <a class="links" href="${gitProjects[1]}" target="blank" >[1]Css Glitch effect text</a><pre>    ->only css glitch effect</pre><br>
+            <a class="links" href="${gitProjects[2]}" target="blank" >[2]Admin Dashboard</a><pre>    ->responsive Admin-Dashboard with dark theme</pre><br>
+            <a class="links" href="${gitProjects[3]}" target="blank" >[3]Postman clone</a><pre>    ->a Postman clone to test backend</pre><br>
+            <a class="links" href="${gitProjects[4]}" target="blank" >[4]JS counter</a><pre>    -> a simple counter with JS</pre><br>
+            <a class="links" href="${gitProjects[5]}" target="blank" >[5]Clock JS</a><pre>    -> a simple clock with js Date()</pre><br>
             `
+            // <span class="comment-color">#use given index in command 'git -gt [index]'</span>
+
+// const gitGt = (index)=>{
+//   // window.open(gitProjects[index], '_blank');
+//   $("#bash").style.display = "none";
+
+// }
