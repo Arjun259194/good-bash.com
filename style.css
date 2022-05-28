@@ -39,7 +39,7 @@ body{
   color: var(--comment-color);
 }
 
-@keyframes cursor {
+@keyframes opacity {
   0%{
     opacity:100%;
   }
@@ -57,8 +57,29 @@ body{
   }
 }
 
+@keyframes fedin {
+  0%{
+    opacity:0%;
+  }
+  25%{
+    opacity:25%;
+  }
+  50%{
+    opacity:50%;
+  }
+  75%{
+    opacity:75%;
+  }
+  100%{
+    opacity:100%;
+  }
+}
+
 .wordArt{
   color: var(--main-color);
+  opacity: 0;
+  /* animation: 1s linear 1s 1 normal fedin; */
+  animation: fedin 1.5s linear 1 normal forwards;
   /* font-size: 1rem; */
 }
 
@@ -106,5 +127,5 @@ body{
   width:1ch;
   height:100%;
   background-color: var(--main-color);
-  animation: 300ms linear 1s infinite alternate cursor;
+  animation: 300ms linear 1s infinite alternate opacity;
 }
