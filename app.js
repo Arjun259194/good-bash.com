@@ -52,6 +52,12 @@ function runCommand(command) {
       gitGt(command[command.length - 1]);
       break;
 
+    case "social-v-0":
+    case "social-v-1":
+    case "social-v-2":
+      socialVisit(command[command.length - 1]);
+      break;
+
     case "who":
       addToTerminal(who);
       break;
