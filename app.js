@@ -43,9 +43,14 @@ function runCommand(command) {
       addToTerminal(git);
       break;
 
-    // case "git -gt":
-    //   gitGt();
-    //   break;
+    case "git-gt-0":
+    case "git-gt-1":
+    case "git-gt-2":
+    case "git-gt-3":
+    case "git-gt-4":
+    case "git-gt-5":
+      gitGt(command[command.length - 1]);
+      break;
 
     case "who":
       addToTerminal(who);

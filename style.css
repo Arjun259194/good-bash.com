@@ -1,10 +1,10 @@
 :root{
-  --main-color:#019a5f;
-  --command-color:#579aff;
+  --main-color:#3F8662;
+  --command-color:#8aade2;
   --command-shadow:#0066ff;
-  --text-color:#e29400;
-  --comment-color:#dc143c;
-  --background-color:#2c2c2c;
+  --text-color:#B87138;
+  --comment-color:#9C8394;
+  --background-color:#211D1B;
   --font-family:'Ubuntu Mono', monospace;
 }
 
@@ -18,7 +18,7 @@
 body{
   background-color:var(--background-color);
   color:var(--text-color);
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
 }
 
 .comment-color{
@@ -45,21 +45,22 @@ body{
 
 .wordArt{
   color: var(--main-color);
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 .links{
   text-decoration: none;
   color: var(--command-color);
-}
-
-.links:hover{
-  text-decoration: underline;
   text-shadow: 0px 0px 4px var(--command-shadow);
 }
 
+.links:hover{
+  background-color: var(--command-shadow);
+  color: var(--background-color);
+}
+
 #instruction{
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   color:var(--comment-color);
 }
 
@@ -69,7 +70,7 @@ body{
 }
 
 #terminal{
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 
 #input-text{
