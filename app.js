@@ -62,6 +62,10 @@ function runCommand(command) {
       addToTerminal(who);
       break;
 
+    case "history":
+      addToTerminal(history());
+      break;
+
     default:
       addToTerminal(`<p>Error</p>`);
       break;

@@ -6,21 +6,33 @@
   --comment-color:#9C8394;
   --background-color:#211D1B;
   --font-family:'Ubuntu Mono', monospace;
+  --font-family-2: 'Share Tech Mono', monospace;
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:var(--font-family);
+  font-family:var(--font-family-2);
 }
 
 body{
   background-color:var(--background-color);
   color:var(--text-color);
   line-height: 1.2rem;
-  padding-inline: 1rem;
+  padding: 1rem;
   /* font-size: 1.25rem; */
+}
+
+::selection {
+  color: var(--background-color);
+  background: var(--comment-color);
+}
+
+#header{
+  color: #c2c2c2;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
 }
 
 .comment-color{
