@@ -1,0 +1,98 @@
+:root{
+  --main-color:#3F8662;
+  --command-color:#8aade2;
+  --command-shadow:#0066ff;
+  --text-color:#B87138;
+  --comment-color:#9C8394;
+  --background-color:#211D1B;
+  --font-family:'Ubuntu Mono', monospace;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:var(--font-family);
+}
+
+body{
+  background-color:var(--background-color);
+  color:var(--text-color);
+  line-height: 1.2rem;
+  padding-inline: 1rem;
+  /* font-size: 1.25rem; */
+}
+
+.comment-color{
+  color: var(--comment-color);
+}
+
+@keyframes cursor {
+  0%{
+    opacity:100%;
+  }
+  25%{
+    opacity:75%;
+  }
+  50%{
+    opacity:50%;
+  }
+  75%{
+    opacity:25%;
+  }
+  100%{
+    opacity:5%;
+  }
+}
+
+.wordArt{
+  color: var(--main-color);
+  /* font-size: 1rem; */
+}
+
+.links{
+  text-decoration: none;
+  color: var(--command-color);
+  text-shadow: 0px 0px 4px var(--comment-color);
+}
+
+.mtb-1{
+  margin: 1rem 0;
+}
+
+/* .links:hover{
+  background-color: var(--command-shadow);
+  color: var(--background-color);
+} */
+
+#instruction{
+  /* font-size: 1.5rem; */
+  color:var(--comment-color);
+}
+
+.command{
+  color: var(--command-color);
+  text-shadow: 0px 0px 4px var(--command-shadow);
+}
+
+#input-text{
+  position: absolute;
+  left: -1000px;
+}
+
+#command{
+  position: relative;
+}
+
+#command::after{
+  content: ' ';
+  display: block;
+  position: absolute;
+  right: -1ch;
+  top:0;
+  /* transform: translate(0px,50%); */
+  width:1ch;
+  height:100%;
+  background-color: var(--main-color);
+  animation: 300ms linear 1s infinite alternate cursor;
+}
