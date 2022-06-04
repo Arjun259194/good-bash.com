@@ -18,6 +18,7 @@ let help = `<div class="mtb-1">
               <pre> <span class="command">social-v-[index]</span>           -visit profile </pre>
               <pre> <span class="command">clear</span>                      -clear screen </pre>
               <pre> <span class="command">clear -a</span>                   -clear screen every thing </pre>
+              <pre> <span class="command">clear -h</span>                   -clear command history </pre>
               <pre> <span class="command">git</span>                        -list out github projects </pre>
               <pre> <span class="command">git-gt-[index]</span>             -visit the project </pre>
               <pre> <span class="command">history</span>                        -list out command history </pre>
@@ -60,6 +61,10 @@ const clearA = () => {
   terminal.innerHTML = "";
 };
 
+const clearH = () => {
+  commands = [];
+};
+
 const git = `<div class="mtb-1">
               <p class="links">[0]Class-A-news.com</p><pre>    ->a Pure js news website project with news api</pre><br>
               <p class="links">[1]Css Glitch effect text</p><pre>    ->only css glitch effect</pre><br>
@@ -81,6 +86,7 @@ const gitGt = (index) => {
 
 const history = () => {
   let history = "";
+  if (commands.length == 0 || commands.length < 0) return '<p class="comment-color">#NO HISTORY</p>' ;
   for (const key in commands) {
     history += `<p>${Number(key) + 1}-<span class="comment-color">${commands[key]}</span></p>`;
   }

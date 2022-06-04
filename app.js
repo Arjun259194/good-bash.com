@@ -6,6 +6,7 @@ const terminal = document.querySelector("#terminal");
 const time = document.querySelector("#time");
 const date = document.querySelector("#date");
 const inputSection = document.querySelector(".input-section");
+const body = document.querySelector("body");
 
 let commands = [];
 let commandIterator;
@@ -33,6 +34,10 @@ function runCommand(command) {
 
     case "clear -a":
       clearA();
+      break;
+
+    case "clear -h":
+      clearH();
       break;
 
     case "social":
@@ -104,10 +109,16 @@ window.addEventListener("keyup", (e) => {
   if (e.keyCode == "38") {
     commandHistory();
   } else {
+    if(textArea.value.length == 10){addToTerminal('<p class="comment-color">#limit is 10 characters</p>')}
     command.innerHTML = textArea.value;
   }
   time.innerHTML = currentTime();
   date.innerHTML = currentDate();
+});
+
+body.addEventListener("click", (e) => {
+  e.preventDefault();
+  textArea.focus();
 });
 
 inputSection.addEventListener("click", () => {
@@ -118,7 +129,9 @@ textArea.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
     commandIterator = commands.length;
-    commands.push(textArea.value.toLowerCase());
+    if (textArea.value.toLowerCase() != "history") {
+      commands.push(textArea.value.toLowerCase());
+    }
     runCommand(textArea.value);
     textArea.value = "";
   }
