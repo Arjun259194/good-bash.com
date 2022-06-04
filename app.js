@@ -1,25 +1,19 @@
-console.log("Connected");
-
-const textArea = document.querySelector("#input-text");
-const command = document.querySelector("#command");
-const terminal = document.querySelector("#terminal");
-const time = document.querySelector("#time");
-const date = document.querySelector("#date");
-const inputSection = document.querySelector(".input-section");
-const body = document.querySelector("body");
-
 let commands = [];
 let commandIterator;
 
+function $(element) {
+  return document.querySelector(element);
+}
+
 window.onload = () => {
   addToTerminal(starterTemplate);
-  textArea.focus();
-  time.innerHTML = currentTime();
-  date.innerHTML = currentDate();
+  $("#input-text").focus();
+  $("#time").innerHTML = currentTime();
+  $("#date").innerHTML = currentDate();
 };
 
 function addToTerminal(content) {
-  terminal.innerHTML += content;
+  $("#terminal").innerHTML += content;
 }
 
 function runCommand(command) {
@@ -78,8 +72,8 @@ function runCommand(command) {
 }
 
 function commandHistory() {
-  command.innerHTML = commands[commandIterator];
-  textArea.value = commands[commandIterator];
+  $("#command").innerHTML = commands[commandIterator];
+  $("#input-text").value = commands[commandIterator];
   if (commandIterator == 0) {
     commandIterator = commands.length - 1;
   } else {
@@ -109,30 +103,32 @@ window.addEventListener("keyup", (e) => {
   if (e.keyCode == "38") {
     commandHistory();
   } else {
-    if(textArea.value.length == 10){addToTerminal('<p class="comment-color">#limit is 10 characters</p>')}
-    command.innerHTML = textArea.value;
+    if ($("#input-text").value.length == 10) {
+      addToTerminal('<p class="comment-color">#limit is 10 characters</p>');
+    }
+    $("#command").innerHTML = $("#input-text").value;
   }
-  time.innerHTML = currentTime();
-  date.innerHTML = currentDate();
+  $("#time").innerHTML = currentTime();
+  $("#date").innerHTML = currentDate();
 });
 
-body.addEventListener("click", (e) => {
+$("body").addEventListener("click", (e) => {
   e.preventDefault();
-  textArea.focus();
+  $("#input-text").focus();
 });
 
-inputSection.addEventListener("click", () => {
-  textArea.focus();
+$(".input-section").addEventListener("click", () => {
+  $("#input-text").focus();
 });
 
-textArea.addEventListener("keypress", function (e) {
+$("#input-text").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
     commandIterator = commands.length;
-    if (textArea.value.toLowerCase() != "history") {
-      commands.push(textArea.value.toLowerCase());
+    if ($("#input-text").value.toLowerCase() != "history") {
+      commands.push($("#input-text").value.toLowerCase());
     }
-    runCommand(textArea.value);
-    textArea.value = "";
+    runCommand($("#input-text").value);
+    $("#input-text").value = "";
   }
 });

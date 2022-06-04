@@ -1,12 +1,3 @@
-/**List of commands
- * //help - shows other commands
- * who - info about developer
- * //social - social media links
- * games - show terminal game to play
- * //clear - clear the screen
- * //git - github projects
- */
-
 const socials = [`https://www.instagram.com/arjun259194`, `https://github.com/Arjun259194`, `https://twitter.com/arjun31690705`];
 const mail = `arjun259194@gmail.com`;
 const gitProjects = ["https://github.com/Arjun259194/Class-A-news", "https://github.com/Arjun259194/glitch_effect_css", "https://github.com/Arjun259194/Responsive-Admin-Dashboard-Using-HTML-CSS-JavaScript-with-Light-Dark-Mode", "https://github.com/Arjun259194/Post-man-clone-from-CWH", "https://github.com/Arjun259194/Counter-in-Javascript", "https://github.com/Arjun259194/Clock-in-javascript"];
@@ -48,7 +39,7 @@ const socialVisit = (index) => {
   addToTerminal(`<p class="comment-color mtb-1">visiting <span class="links">${socials[index]}</span></p>`);
   setTimeout(() => {
     window.open(socials[index], "_blank");
-    command.innerHTML = textArea.value;
+    $("#command").innerHTML = textArea.value;
     textArea.value = "";
   }, 500);
 };
@@ -80,13 +71,13 @@ const gitGt = (index) => {
   setTimeout(() => {
     window.open(gitProjects[index], "_blank");
     textArea.value = "";
-    command.innerHTML = textArea.value;
+    $("#command").innerHTML = textArea.value;
   }, 500);
 };
 
 const history = () => {
   let history = "";
-  if (commands.length == 0 || commands.length < 0) return '<p class="comment-color">#NO HISTORY</p>' ;
+  if (commands.length == 0 || commands.length < 0) return '<p class="comment-color">#NO HISTORY</p>';
   for (const key in commands) {
     history += `<p>${Number(key) + 1}-<span class="comment-color">${commands[key]}</span></p>`;
   }
