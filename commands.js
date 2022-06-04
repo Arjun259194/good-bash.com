@@ -1,6 +1,12 @@
 const socials = [`https://www.instagram.com/arjun259194`, `https://github.com/Arjun259194`, `https://twitter.com/arjun31690705`];
 const mail = `arjun259194@gmail.com`;
-const gitProjects = ["https://github.com/Arjun259194/Class-A-news", "https://github.com/Arjun259194/glitch_effect_css", "https://github.com/Arjun259194/Responsive-Admin-Dashboard-Using-HTML-CSS-JavaScript-with-Light-Dark-Mode", "https://github.com/Arjun259194/Post-man-clone-from-CWH", "https://github.com/Arjun259194/Counter-in-Javascript", "https://github.com/Arjun259194/Clock-in-javascript"];
+const gitProjects = ["https://github.com/Arjun259194/Class-A-news",
+                     "https://github.com/Arjun259194/glitch_effect_css",
+                     "https://github.com/Arjun259194/Responsive-Admin-Dashboard-Using-HTML-CSS-JavaScript-with-Light-Dark-Mode",
+                     "https://github.com/Arjun259194/Post-man-clone-from-CWH",
+                     "https://github.com/Arjun259194/Counter-in-Javascript",
+                     "https://github.com/Arjun259194/Clock-in-javascript"
+];
 
 let help = `<div class="mtb-1">
               <pre> <span class="command">help</span>                       -to see help </pre>
